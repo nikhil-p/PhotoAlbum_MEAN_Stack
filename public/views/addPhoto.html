@@ -1,0 +1,56 @@
+<div>
+    <br>
+
+    <div class="row">
+        <div class="span12 modal-header">
+            <h4 class="modal-title">Photo Details</h4>
+        </div>
+
+        <form class=form-horizontal name=userDialog ng-submit=save() role=form>
+            <div class="form-group ng-scope" ng-class="{error: myForm.name.$invalid}">
+                <label class="control-label col-md-2">Title</label>
+                <input type="text" name="name" ng-model="photo.title" required>
+                <span ng-show="userDialog.name.$error.required" class="help-inline">Required</span>
+            </div>
+            <div class="form-group ng-scope" ng-class="{error: myForm.name.$invalid}">
+                <label class="control-label col-md-2">Select Photo</label>
+                <input class="br-upload-file"
+                       type="file"
+                       nv-file-select
+                       uploader="uploader"
+                       filters="xls"/>
+                <span ng-show="userDialog.name.$error.required" class="help-inline">Required</span>
+            </div>
+
+            <div class="form-group ng-scope" ng-class="{error: myForm.name.$invalid}">
+                <label class="control-label col-md-2">Date Taken</label>
+                <input type="text" name="name" ng-model="photo.date" required>
+                <span ng-show="userDialog.name.$error.required" class="help-inline">Required</span>
+            </div>
+            <div class="form-group ng-scope" ng-class="{error: myForm.name.$invalid}">
+                <label class="control-label col-md-2">Category</label>
+                <select class="br-license-type-selector ng-pristine"
+                        ng-model="photo.category">
+                    <option ng-repeat="category in photoCategories" value="{{category}}">{{category}}</option>
+                </select>
+                <span ng-show="userDialog.name.$error.required" class="help-inline">Required</span>
+            </div>
+            <div class="form-group ng-scope" ng-class="{error: myForm.name.$invalid}">
+                <label class="control-label col-md-2">Comments</label>
+                <input type="text" name="name" ng-model="photo.comments" required>
+                <span ng-show="userDialog.name.$error.required" class="help-inline">Required</span>
+            </div>
+        </form>
+
+        <div class="br-brand-dialogue modal-footer">
+            <button id="btn-user-save" type="button" class="br-btn br-brand-button-main"
+                    ng-click=save()>Save
+            </button>
+            <button id="btn-user-cancel" type="button" class="br-btn br-brand-button-main"
+                    ng-click=cancel()>Cancel
+            </button>
+        </div>
+    </div>
+
+</div>
+</div>
